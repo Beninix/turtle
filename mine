@@ -1,0 +1,33 @@
+args = {...}
+forwardLen = args[1]-1
+sidewaysLen = args[2]
+print("Performing on " .. forwardLen+1 .. " by " ..  sidewaysLen .. "area.")
+function action()
+    turtle.dig()
+    turtle.forward()
+end
+
+action()
+
+for m=1,sidewaysLen,1
+do
+    for n=1,forwardLen,1
+    do
+        action()
+    end
+    if(m>=tonumber(sidewaysLen))
+    then
+        break
+    end
+    if(m%2==1)
+    then
+        turtle.turnRight()
+        action()
+        turtle.turnRight()
+    else
+        turtle.turnLeft()
+        action()
+        turtle.turnLeft()    
+    end
+end
+print("Done.")
