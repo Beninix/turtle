@@ -1,7 +1,7 @@
 args = {...}
 forwardLen = args[1]-1
 sidewaysLen = args[2]
-print("Performing on " .. forwardLen+1 .. " by " ..  sidewaysLen .. "area.")
+print("Performing on " .. forwardLen+1 .. " by " ..  sidewaysLen .. " area.")
 function action()
     turtle.dig()
     turtle.forward()
