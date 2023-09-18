@@ -1,0 +1,29 @@
+args = {...}
+len = args[1]
+print("Building a " .. len .. " by " .. len .. " by " .. len  .. " cube.")
+slot = turtle.getSelectedSlot() 
+function action()
+    if(turtle.getItemCount(slot)<1)
+    then
+      if(slot<9):
+      then
+        slot = slot + 1
+      else
+        slot = 1
+    turtle.placeDown()
+    turtle.forward()
+end
+
+action()
+for l=1,len,1
+do
+  for m=1,4,1
+  do
+      for n=1,len,1
+      do
+          action()
+      end
+      turtle.turnRight()
+  end
+end
+print("Done.")
