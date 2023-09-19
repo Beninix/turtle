@@ -14,7 +14,30 @@ function action()
     turtle.forward()
 end
 
-action()
+function buildPlane()
+    for m=1,len,1
+    do
+        for n=1,len,1
+        do
+            action()
+        end
+        if(m>=tonumber(len))
+        then
+            break
+        end
+        if(m%2==1)
+        then
+            turtle.turnRight()
+            action()
+            turtle.turnRight()
+        else
+            turtle.turnLeft()
+            action()
+            turtle.turnLeft()    
+        end
+    end
+
+buildPlane()
 for l=1,len,1
 do
   for m=1,4,1
@@ -26,4 +49,5 @@ do
       turtle.turnRight()
   end
 end
+buildPlane()
 print("Done.")
