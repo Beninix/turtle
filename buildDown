@@ -13,11 +13,12 @@ function action()
     turtle.down()
 end
 
-while(true):
+while(true) do
 	local success,data = turtle.inspectDown()
 	if(data.name == "minecraft:bedrock") then
 		break
 	else
 		action()
 	end
+end
 print("Done.")
