@@ -1,0 +1,23 @@
+slot = turtle.getSelectedSlot() 
+function action()
+    while(turtle.getItemCount(slot)<1) do
+      if(slot<16)
+      then
+        slot = slot + 1
+      else
+        slot = 1
+      end
+    turtle.select(slot)
+    end
+    turtle.place()
+    turtle.down()
+end
+
+while(true):
+	local success,data = turtle.inspectDown()
+	if(data.name == "minecraft:bedrock") then
+		break
+	else
+		action()
+	end
+print("Done.")
