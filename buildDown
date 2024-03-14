@@ -14,10 +14,9 @@ function action()
 end
 
 while(true) do
+	action()
 	if(turtle.inspectDown()) then
 		break
-	else
-		action()
 	end
 end
 print("Done.")
