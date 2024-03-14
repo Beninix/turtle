@@ -14,8 +14,7 @@ function action()
 end
 
 while(true) do
-	local success,data = turtle.inspectDown()
-	if(data.name == "minecraft:bedrock") then
+	if(turtle.inspectDown()) then
 		break
 	else
 		action()
