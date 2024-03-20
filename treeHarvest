@@ -3,8 +3,8 @@ turtle.forward()
 
 while(true) do
 	turtle.dig()
-  local success, data = turtle.inspectUp()
-	if(success and data.name()!="minecraft:spruce_wood") then
+  	local success, data = turtle.inspectUp()
+	if(success and data.name~="minecraft:spruce_wood") then
 		break
 	end
   turtle.digUp()
@@ -18,8 +18,8 @@ turtle.turnLeft()
 
 while(true) do
 	turtle.dig()
-  local success, data = turtle.inspectDown()
-	if(data.name()=="minecraft:dirt") then
+ 	local success, data = turtle.inspectDown()
+	if(data.name=="minecraft:dirt") then
 		break
 	end
   turtle.digDown()
