@@ -1,0 +1,29 @@
+turtle.dig()
+turtle.forward()
+
+while(true) do
+	turtle.dig()
+  local success, data = turtle.inspectUp()
+	if(data.name()=="minecraft:spruce_wood") then
+		break
+	end
+  turtle.digUp()
+  turtle.up()
+end
+
+turtle.turnRight()
+turtle.dig()
+turtle.forward()
+turtle.turnLeft()
+
+while(true) do
+	turtle.dig()
+  local success, data = turtle.inspectDown()
+	if(data.name()=="minecraft:dirt") then
+		break
+	end
+  turtle.digDown()
+  turtle.down()
+end
+
+print("Done.")
