@@ -26,4 +26,9 @@ while(true) do
   turtle.down()
 end
 
+turtle.back()
+turtle.turnRight()
+turtle.back()
+turtle.left()
+
 print("Done.")
