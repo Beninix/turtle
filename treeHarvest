@@ -1,3 +1,4 @@
+turtle.up()
 turtle.dig()
 turtle.forward()
 
@@ -19,7 +20,7 @@ turtle.turnLeft()
 while(true) do
 	turtle.dig()
  	local success, data = turtle.inspectDown()
-	if(data.name=="minecraft:dirt") then
+	if(data.name=="minecraft:podzol") then
 		break
 	end
   turtle.digDown()
@@ -29,6 +30,7 @@ end
 turtle.back()
 turtle.turnRight()
 turtle.back()
-turtle.left()
+turtle.turnLeft()
+turtle.down()
 
 print("Done.")
