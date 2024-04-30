@@ -18,8 +18,10 @@ end
 function nline(n)
     for i=1,n do
 	action()
-	if i!=n do
+	if i~=n then
 		turtle.forward()
+	else
+		turtle.turnRight()
 	end
     end
 end
