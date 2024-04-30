@@ -1,5 +1,5 @@
 args = {...}
-len = args[1]
+len = tonumber(args[1])
 print("Building a " .. len .. " by " .. len .. " by " .. len  .. " cube.")
 slot = turtle.getSelectedSlot() 
 function place()
@@ -14,41 +14,62 @@ function place()
     end
     turtle.placeDown()
 end
-
+ 
 function nline(n)
-    for i=1,n do
-	action()
-	if i~=n then
-		turtle.forward()
-	else
-		turtle.turnRight()
-	end
+    for i=1,n or 1,1 do
+    place()
+    if i~=n then
+        turtle.forward()
+    else
+        turtle.turnRight()
+        turtle.forward()
+    end
     end
 end
 
---Build Plane
-nline(x)
-for i=x-1,1,-1 do
-    nline(i)
-    nline(i)
-end
---Build Walls
-place()
-	for j=1,x-2 do
-		for i=1,3 do
-			nline(x-1)
-			nline(x-1)
-			nline(x-1)
-		end
-		turtle.forward()
-		turtle.turnRight()
-		turtle.up()
-		place()
+function buildPlane()
+	nline(len)
+	for i=len-1,1,-1 do
+	    nline(i)
+	    nline(i)
 	end
---Build Plane
-nline(x)
-for i=x-1,1,-1 do
-    nline(i)
-    nline(i)
+	if len%2==0 then
+	    for i=1,math.floor((len-1)/2) or 1,1 do
+	        turtle.forward()
+	    end
+	    turtle.turnLeft()
+	    for i=1,math.floor((len-1)/2) or 1,1 do
+	        turtle.forward()
+	    end 
+	    turtle.turnRight()
+	    turtle.turnRight()
+	    turtle.up()
+	else
+	    turtle.turnRight()
+	    for i=1,math.floor(len/2) or 1,1 do
+	        turtle.forward()
+	    end
+	    turtle.turnRight()
+	    for i=1,(len+1)/2 or 1,1 do
+	        turtle.forward()
+	    end
+	    turtle.up()
+	    turtle.turnRight()
+	end
 end
+
+--Build floor
+buildPlane()
+--Build Walls
+for j=1,len-2 do
+	print(j)
+	nline(len)
+	for i=1,3 do
+	    nline(len-1)
+	end
+	turtle.back()
+	turtle.up()
+end
+--Build roof
+buildPlane()
 print("Done.")
